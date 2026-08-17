@@ -1,0 +1,22 @@
+<h1>Bienvenue sur QuoteHub</h1>
+<p>La bibliothèque de citations inspirantes.</p>
+
+@if (chargement) {
+  <p class="info">Chargement...</p>
+}
+
+@if (erreur) {
+  <p class="erreur">{{ erreur }}</p>
+}
+
+@if (citationAffichee) {
+  <div class="citation-du-moment">
+    <blockquote>« {{ citationAffichee.texte }} »</blockquote>
+    <p class="auteur">— {{ citationAffichee.auteur }} ({{ citationAffichee.nomCategorie }})</p>
+  </div>
+  <button (click)="nouvelleCitation()">Nouvelle citation</button>
+}
+
+@if (!chargement && !erreur && citations.length === 0) {
+  <p class="info">Aucune citation pour le moment. <a routerLink="/add">Ajoutez la première !</a></p>
+}

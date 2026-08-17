@@ -1,0 +1,43 @@
+<h1>Ajouter une citation</h1>
+
+@if (erreur) {
+  <p class="erreur">{{ erreur }}</p>
+}
+
+<form (ngSubmit)="envoyer()">
+  <div class="champ">
+    <label for="texte">Citation</label>
+    <textarea
+      id="texte"
+      name="texte"
+      rows="4"
+      maxlength="255"
+      placeholder="Écrivez la citation ici..."
+      [(ngModel)]="texte"></textarea>
+  </div>
+
+  <div class="champ">
+    <label for="auteur">Auteur</label>
+    <input
+      id="auteur"
+      name="auteur"
+      type="text"
+      maxlength="255"
+      placeholder="Ex : Albert Einstein"
+      [(ngModel)]="auteur" />
+  </div>
+
+  <div class="champ">
+    <label for="categorie">Catégorie</label>
+    <select id="categorie" name="categorie" [(ngModel)]="categorieId">
+      <option [ngValue]="null">-- Choisir une catégorie --</option>
+      @for (categorie of categories; track categorie.id) {
+        <option [ngValue]="categorie.id">{{ categorie.nom }}</option>
+      }
+    </select>
+  </div>
+
+  <button type="submit" [disabled]="envoiEnCours">
+    {{ envoiEnCours ? 'Envoi...' : 'Enregistrer' }}
+  </button>
+</form>

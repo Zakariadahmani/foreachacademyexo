@@ -1,0 +1,37 @@
+<h1>Toutes les citations</h1>
+
+<div class="filtres">
+  <input
+    type="text"
+    placeholder="Rechercher un auteur ou un mot..."
+    [(ngModel)]="recherche" />
+
+  <select [(ngModel)]="categorieChoisie">
+    <option value="">Toutes les catégories</option>
+    @for (categorie of categories; track categorie.id) {
+      <option [value]="categorie.nom">{{ categorie.nom }}</option>
+    }
+  </select>
+</div>
+
+@if (chargement) {
+  <p class="info">Chargement...</p>
+}
+
+@if (erreur) {
+  <p class="erreur">{{ erreur }}</p>
+}
+
+<div class="cartes">
+  @for (citation of citationsFiltrees(); track citation.id) {
+    <a class="carte" [routerLink]="['/quotes', citation.id]">
+      <p class="texte">« {{ citation.texte }} »</p>
+      <p class="auteur">{{ citation.auteur }}</p>
+      <span class="theme">{{ citation.nomCategorie }}</span>
+    </a>
+  }
+</div>
+
+@if (!chargement && !erreur && citationsFiltrees().length === 0) {
+  <p class="info">Aucune citation trouvée.</p>
+}

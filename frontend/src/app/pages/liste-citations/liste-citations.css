@@ -1,0 +1,56 @@
+.filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filtres input {
+  flex: 2;
+  min-width: 200px;
+}
+
+.filtres select {
+  flex: 1;
+  min-width: 150px;
+}
+
+.cartes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.carte {
+  display: block;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.carte:hover {
+  border-color: #2c3e50;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.texte {
+  font-style: italic;
+  margin-top: 0;
+}
+
+.auteur {
+  font-weight: bold;
+  color: #555;
+}
+
+.theme {
+  display: inline-block;
+  background-color: #eaf2f8;
+  color: #2c3e50;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+}

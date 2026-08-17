@@ -1,0 +1,30 @@
+.retour {
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+.retour:hover {
+  text-decoration: underline;
+}
+
+.detail {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 25px;
+  margin-top: 15px;
+}
+
+blockquote {
+  margin: 0 0 20px 0;
+  font-size: 22px;
+  font-style: italic;
+}
+
+.supprimer {
+  background-color: #c0392b;
+}
+
+.supprimer:hover {
+  background-color: #a93226;
+}

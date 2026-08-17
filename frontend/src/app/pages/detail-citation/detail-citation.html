@@ -1,0 +1,19 @@
+<a routerLink="/quotes" class="retour">← Retour à la liste</a>
+
+@if (chargement) {
+  <p class="info">Chargement...</p>
+}
+
+@if (erreur) {
+  <p class="erreur">{{ erreur }}</p>
+}
+
+@if (citation) {
+  <div class="detail">
+    <h1>Citation n°{{ citation.id }}</h1>
+    <blockquote>« {{ citation.texte }} »</blockquote>
+    <p><strong>Auteur :</strong> {{ citation.auteur }}</p>
+    <p><strong>Catégorie :</strong> {{ citation.nomCategorie }}</p>
+    <button class="supprimer" (click)="supprimer()">Supprimer</button>
+  </div>
+}

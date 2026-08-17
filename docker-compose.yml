@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:17              # la version, figée pour toute la classe
+    container_name: quotehub-db
+    environment:
+      POSTGRES_DB: quotehub     # la base est créée automatiquement
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: quotehub
+    ports:
+      - "5432:5432"                  # port du conteneur → port de votre machine
+    volumes:
+      - pgdata:/var/lib/postgresql/data  # les données survivent aux redémarrages
+
+  frontend:
+    build: ./frontend
+    container_name: quotehub-front
+    ports:
+      - "4200:80"
+
+volumes:
+  pgdata:

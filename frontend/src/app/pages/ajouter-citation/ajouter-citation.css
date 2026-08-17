@@ -1,0 +1,17 @@
+form {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 25px;
+  max-width: 500px;
+}
+
+.champ {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
